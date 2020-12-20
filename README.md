@@ -47,6 +47,11 @@ The _Chicago_ and _New York City_ files also have the following two columns:
 - **Gender**
 - **Birth Year**
 
+The original (unwrangled) files can be accessed here:
+- [Chicago](https://www.divvybikes.com/system-data)
+- [New York City](https://www.citibikenyc.com/system-data)
+- [Washington](https://www.capitalbikeshare.com/system-data)
+
 ## Statistics Computed
 
 The code provides the following information:
