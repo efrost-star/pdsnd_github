@@ -289,4 +289,18 @@ def user_stats(df,city):
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)    
+    print('-'*40)
+
+def load_raw_data(city):
+    """Loads the raw data set inly filtered by the selected city.
+
+    Parameters:
+        city (str) -- name of the city
+
+    Returns:
+        df_raw -- raw dataset filtered by city
+    """
+    df_raw = pd.read_csv(CITY_DATA[city])
+
+    return df_raw
+    
