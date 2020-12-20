@@ -116,3 +116,54 @@ def load_data(city, month, day):
          df = df[df['day_of_week'] == day.title()]
 
     return df
+
+def time_stats(df):
+    """Displays statistics on the most frequent times of travel.
+
+    Parameters:
+        df -- dataframe
+
+    Returns:
+        None
+    """
+
+    print('\nCalculating The Most Frequent Times of Travel...\n')
+    start_time = time.time()
+
+   # TO DO: display the most common month
+    #calculate the mode value of the column month
+    common_month = df["month"].mode()[0]
+    #get the common month name as a string
+    if common_month == 1:
+        common_month_name = "January"
+    elif common_month == 2:
+        common_month_name = "February"
+    elif common_month == 3:
+        common_month_name = "March"
+    elif common_month == 4:
+        common_month_name = "April"
+    elif common_month == 5:
+        common_month_name = "May"
+    elif common_month == 6:
+        common_month_name = "June"
+
+
+    print(f"Most common month: {common_month_name}")
+
+    # TO DO: display the most common day of week
+    #calculate the mode value of the column
+    common_day = df["day_of_week"].mode()[0]
+
+    print(f"Most common day: {common_day}")
+
+    # TO DO: display the most common start hour
+    #create new column with the hours
+    df["hour"]=df["Start Time"].dt.hour
+    #calculate the mode value of the column
+    common_hour = df["hour"].mode()[0]
+
+    print(f"Most common hour: {common_hour}")
+
+    #Print time it took to calculate
+    print("\nThis took%s seconds." % (time.time() - start_time))
+    print('-'*40)
