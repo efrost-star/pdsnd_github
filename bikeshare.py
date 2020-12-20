@@ -242,4 +242,51 @@ def trip_duration_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
+def user_stats(df,city):
+    """Displays statistics on bikeshare users.
+
+    Parameters:
+        df -- dataframe
+        city (str) -- the city the data is filtered by
+
+    Returns:
+        None
+    """
+
+    print('\nCalculating User Stats...\n')
+    start_time = time.time()
+
+    # TO DO: Display counts of user types
+    #count unique values of user types
+    user_type = df["User Type"].value_counts()
+
+    print("Your dataset has the following user type frequencies:\n")
+    print(user_type)
+
+    # TO DO: Display counts of gender
+    #code returns except statement if dataset does not have the relevant column
+
+    if city != "washington":
+        gender = df["Gender"].value_counts()
+
+        print("\nYour dataset has the following gender distribution:\n")
+        print(gender)
+
+
+    # TO DO: Display earliest, most recent, and most common year of birth
+     #code returns except statement if dataset does not have the relevant column
+
+        min_year = int(df["Birth Year"].min())
+        max_year = int(df["Birth Year"].max())
+        common_year = int(df["Birth Year"].mode())
+
+        print(f"\nThe earliest Birth Year is {min_year}, the most recent Birth Year is {max_year} and the most common year of birth is {common_year}.")
+
+
+    elif city == "washington":
+        print("\nThis dataset has no data on Gender or Birth Year. ")
+
+
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)    
