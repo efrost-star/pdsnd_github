@@ -84,3 +84,7 @@ By entering input, the user can decide which data set he or she would like to vi
 To get the code started just navigate in your terminal to the directory where the project is located
 and type `python bikeshare.py`. (If you are using a newer version of python remeber to type _python 3_!).
 After this the code will ask you for input to select the filters.
+
+# Credits
+
+Udacity has provided assistance and example code for _calculating the most popular hour_, _displaying a breakdown of user types_ and for _loading and filtering the dataset_ as part of this project.
