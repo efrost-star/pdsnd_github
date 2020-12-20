@@ -303,4 +303,52 @@ def load_raw_data(city):
     df_raw = pd.read_csv(CITY_DATA[city])
 
     return df_raw
+
+def raw_data(df_raw):
+    """Displays rows from the raw data set
+
+    Parameters:
+        df_raw -- raw dataset filtered only by city
+
+    Returns:
+        None
+    """
+
+    #create empty variable to store the answer from the user
+    #create list of valid responses
+    #create empty row variable to store count of the rows
+    answer = ""
+    responses = ["yes", "no"]
+    row = 0
+
+    #show head of the raw data set if user chooses "yes"
+    while answer not in responses:
+        answer = input("Do you want to view the raw data set before you proceed? Enter yes or no:").lower()
+
+        if answer == "yes":
+            print(df_raw.head())
+
+        elif answer not in responses:
+            print("\nThis is not a valid response.")
+            print("\nTry again...")
+
+    #continue to show 5 more rows until user chooses "no"
+    while answer == "yes":
+
+        print("\nDo you want to see further lines from the raw data?")
+        answer = input(("\nEnter yes or no: ")).lower()
+
+        #while loop to handle wrong input
+        while answer not in responses:
+            print("\nThis is not a valid response.")
+            print("\nTry again...")
+            answer = input(("\nEnter yes or no: ")).lower()
+
+        if answer == "yes":
+            row += 5
+            print(df_raw.loc[row:row+5])
+        elif answer == "no":
+            break
+
+    print('-'*40)
     
